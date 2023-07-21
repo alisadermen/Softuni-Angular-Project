@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "blogstagram-c3692"
+  },
+  "targets": {
+    "blogstagram-c3692": {
+      "hosting": {
+        "final-project-softuni": [
+          "blogstagram-c3692"
+        ]
+      }
+    }
+  }
+}
