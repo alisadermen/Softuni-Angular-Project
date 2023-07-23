@@ -1,29 +1,21 @@
 import { Injectable } from '@angular/core';
-import { Firestore, Query, collection, query } from '@angular/fire/firestore';
+import { Firestore, collection, addDoc, collectionData, doc, updateDoc, deleteDoc } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { inject } from '@angular/core';
 import { MovieReview } from './models/movie-review.model';
-import { collectionData } from 'rxfire/firestore';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
   firestore: Firestore = inject(Firestore);
-  //movieReview$: Observable<any[]>;
 
   constructor(){}
   
-  getReviews(): Observable<any[]>{
+  public getReviews(): Observable<any[]>{
     const movieReviewsRef = collection(this.firestore,'movie-reviews');
-    const movieReview$ = collectionData(movieReviewsRef);
-    // const reviews: MovieReview[] = [];
-    // await movieReview$.forEach(element => {
-    //   const review = this.mapResultToMovieReview(element);
-    //   reviews.push(review);
-    // });
-    // return reviews;
-    return movieReview$;
+    const movieReview = collectionData(movieReviewsRef);
+    return movieReview;
   }
 
   mapResultToMovieReview = (result: any): MovieReview => {
@@ -36,7 +28,49 @@ export class ApiService {
         content: result.content
     };
 }
-  getPosts(){}
+  public getPosts(){}
+  
+  public addUsers(f: any){
+    console.log(f.value);
+    const collectionInstance = collection(this.firestore, 'users');
+    addDoc(collectionInstance, f.value).then(() => {
+      console.log('Data saved successfully');
+    })
+    .catch((error)=>{
+      console.log(error);
+      
+    })
+  }
+  
+  public getUsers(): Observable<any[]>{
+    const collectionInstance = collection(this.firestore, 'users');
+    collectionData(collectionInstance, {idField: 'id'}).subscribe(val =>{
+      console.log(val);
+    })
+    
+    const userData = collectionData(collectionInstance, {idField: 'id'});
+    return userData;
+  }
+  
+  public updateUsers(id: string){
+    const docInstance = doc(this.firestore, 'users', id);
+    const updateData = {
+      name: "updated name"
+    }
+    updateDoc(docInstance, updateData)
+    .then(()=>{
+      console.log('Data update');
+    })
+    .catch((error)=>{
+      console.log(error);
+    })
+  }
+  
+  public deleteUsers(id: string){
+    const docInstance = doc(this.firestore, 'users', id);
+    deleteDoc(docInstance).then(()=>{
+      console.log('Deleted');
+    })
+  }
 }
-
 

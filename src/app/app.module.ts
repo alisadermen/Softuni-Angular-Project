@@ -10,7 +10,8 @@ import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { MainComponent } from './main/main.component';
 import { PostsListComponent } from './posts-list/posts-list.component';
-import { ThemesListComponent } from './themes-list/themes-list.component';
+import { FormsModule } from '@angular/forms';
+import { MovieReviewsListComponent } from './movie-reviews-list/movie-reviews-list.component';
 
 //entry module v koito moje da includevame drugi moduli
 
@@ -19,12 +20,13 @@ import { ThemesListComponent } from './themes-list/themes-list.component';
     AppComponent,
     MainComponent,
     PostsListComponent,
-    ThemesListComponent
+    MovieReviewsListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CoreModule,
+    FormsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore())
   ],

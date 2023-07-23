@@ -2,4 +2,20 @@
 <app-main>
   
 </app-main>
+<form #f="ngForm" (ngSubmit) ="addUsers(f)">
+  <input type="text" name="name" ngModel>
+  <br>
+  <input type="email" name="email" ngModel>
+  <br>
+  <input type="password" name="password" ngModel>
+  <br>
+  <button type="submit">Save data</button>
+</form>
+
+<ul>
+  <li *ngFor="let data of userData | async">{{data.name}} / {{data.email}}
+    <button (click)="updateUsers(data.id)">Edit</button>
+    <button (click)="deleteUsers(data.id)">Delete</button>
+  </li>
+</ul>
 <app-footer />
