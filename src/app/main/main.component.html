@@ -1,9 +1,4 @@
-<div>
-    <ul>
-        <li *ngFor="let movieReview of movieReviews | async">
-        {{movieReview.title}};
-        </li>
-      </ul>
+<div class="container">
+    <app-movie-reviews-list />
+    <!--<app-users-list />-->
 </div>
-<app-themes-list />
-<app-posts-list />

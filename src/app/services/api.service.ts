@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Firestore, collection, addDoc, collectionData, doc, updateDoc, deleteDoc } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { inject } from '@angular/core';
-import { MovieReview } from './models/movie-review.model';
+import { MovieReview } from '../models/movie-review.model';
 
 @Injectable({
   providedIn: 'root'
@@ -13,9 +13,9 @@ export class ApiService {
   constructor(){}
   
   public getReviews(): Observable<any[]>{
-    const movieReviewsRef = collection(this.firestore,'movie-reviews');
-    const movieReview = collectionData(movieReviewsRef);
-    return movieReview;
+    const collectionInstance = collection(this.firestore,'movie-reviews');
+    const movieReviews = collectionData(collectionInstance, {idField: 'id'});
+    return movieReviews;
   }
 
   mapResultToMovieReview = (result: any): MovieReview => {
@@ -23,9 +23,11 @@ export class ApiService {
     return {
         id: result.id,
         author: result.author,
+        authorId: result.authorId,
         title: result.title,
         date: result.date,
-        content: result.content
+        content: result.content,
+        photo_url:result.photo_url
     };
 }
   public getPosts(){}

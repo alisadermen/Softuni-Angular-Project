@@ -9,9 +9,9 @@ import { CoreModule } from './core/core.module';
 import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { MainComponent } from './main/main.component';
-import { PostsListComponent } from './posts-list/posts-list.component';
 import { FormsModule } from '@angular/forms';
 import { MovieReviewsListComponent } from './movie-reviews-list/movie-reviews-list.component';
+import { UsersListComponent } from './users-list/users-list.component';
 
 //entry module v koito moje da includevame drugi moduli
 
@@ -19,8 +19,8 @@ import { MovieReviewsListComponent } from './movie-reviews-list/movie-reviews-li
   declarations: [
     AppComponent,
     MainComponent,
-    PostsListComponent,
-    MovieReviewsListComponent
+    MovieReviewsListComponent,
+    UsersListComponent
   ],
   imports: [
     BrowserModule,
