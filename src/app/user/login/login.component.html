@@ -1,0 +1,22 @@
+<div class="container">
+    <h1>Login</h1>
+    <input type="email" placeholder="Email" #inputEmail>
+    <p class="error">
+        Email is required!
+    </p>
+    <!-- <p class="error">
+        Email is not valid!
+    </p> -->
+    <input type="password" placeholder="Password" #inputPassword>
+    <!-- <p class="error">
+                    Password is required!
+                </p>
+                <p class="error">
+                    Password must be at least 4 characters!
+                </p> -->
+    <button (click)="login(inputEmail.value, inputPassword.value)" type="submit" class="hover">LOGIN</button>
+    <p>Not a member? <a href="#">Sign up now</a></p>
+  </div>
+ 
+  
+  

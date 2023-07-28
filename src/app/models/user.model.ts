@@ -1,9 +1,9 @@
 import { MovieReview } from "./movie-review.model";
 
 export interface User {
-    id: string,
+    //id: string,
     name: string;
     email: string;
-    password: string;
-    reviews: MovieReview[];
+    //password: string;
+    //reviews: MovieReview[];
 }

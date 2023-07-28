@@ -3,7 +3,7 @@ import { User } from "./user.model";
 export interface MovieReview {
     id: string;
     author: User["name"];
-    authorId: User["id"];
+    //authorId: User["id"];
     date: string;
     title: string;
     content: string;

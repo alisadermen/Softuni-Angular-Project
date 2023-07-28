@@ -20,7 +20,7 @@ export class MovieReviewsListComponent implements OnInit{
   ngOnInit(): void {
     this.apiService.getReviews().subscribe((reviews)=>{
       this.reviews = reviews;
-      //this.reviews = [];
+      //this.reviews = []; za testvane na thereAreNoReviews
       if(reviews.length === 0){
         this.thereAreNoReviews = true;
       }

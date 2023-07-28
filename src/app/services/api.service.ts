@@ -18,6 +18,7 @@ export class ApiService {
     return movieReviews;
   }
 
+  /*
   mapResultToMovieReview = (result: any): MovieReview => {
     
     return {
@@ -30,6 +31,7 @@ export class ApiService {
         photo_url:result.photo_url
     };
 }
+*/
   public getPosts(){}
   
   public addUsers(f: any){

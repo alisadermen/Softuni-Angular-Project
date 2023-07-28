@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Domine:wght@400;500;600;700&display=swap');
+
+
+.container{
+  background-color: white;
+  width: 400px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 15px;
+  padding-top: 70px;
+  border: 1px solid #C34C89;
+}
+
+h1{
+  text-align: center;
+  padding-bottom: 30px;
+  font-family: 'Domine', serif
+
+}
+
+input {
+  width: 270px;
+  padding: 15px;
+  background-color: #E7E7E7;
+  border: none;
+}
+
+.icon{
+  position: absolute;
+  
+}
+
+button {
+  width: 270px;
+  padding: 15px;
+  background-color: #C34C89;
+  border: none;
+  margin-top: 30px;
+  color: white;
+}
+
+
+p{
+  color: #B7B7B7;
+}
+
+a{
+  color: #B7B7B7;
+}
+
+button:hover{
+  background-color: #BC2874;
+  cursor: pointer;
+}
+
+p.error{
+    text-align: left;
+}

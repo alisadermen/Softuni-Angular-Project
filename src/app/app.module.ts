@@ -12,6 +12,8 @@ import { MainComponent } from './main/main.component';
 import { FormsModule } from '@angular/forms';
 import { MovieReviewsListComponent } from './movie-reviews-list/movie-reviews-list.component';
 import { UsersListComponent } from './users-list/users-list.component';
+import { HomeComponent } from './home/home.component';
+import { ReviewModule } from './review/review.module';
 
 //entry module v koito moje da includevame drugi moduli
 
@@ -20,13 +22,15 @@ import { UsersListComponent } from './users-list/users-list.component';
     AppComponent,
     MainComponent,
     MovieReviewsListComponent,
-    UsersListComponent
+    UsersListComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CoreModule,
     FormsModule,
+    ReviewModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore())
   ],
