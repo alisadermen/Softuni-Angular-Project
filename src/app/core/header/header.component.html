@@ -1,40 +1,41 @@
 <header>
-    <div class="mini-navbar-wrap">
+    <div class="header-container">
         <div class="logo-wrap">
             <p class="logo"><span class="logo">Blogstagram</span></p>
         </div>
         <div class="mini-navbar">
-            <ul *ngIf="!isLogged" >
+            <ul>
                 <li>
-                    <a routerLink="/login">Login</a>
+                    <a routerLink="/home">Home</a>
                 </li>
                 <li>
-                    <a routerLink="/register">Sign up</a>
+                    <a routerLink="/reviews">Reviews</a>
                 </li>
-            </ul>
-            <ul *ngIf="isLogged">
                 <li>
-                    <a routerLink="/profile">My profile</a>
-                </li>
-                <li (click)="logout()">
-                    <a>Logout</a>
+                    <a routerLink="/add-review">Add a review</a>
                 </li>
             </ul>
         </div>
+        <div class="login-container">
+            <nav>
+                <ul *ngIf="!isLogged" >
+                    <li>
+                        <a routerLink="/login">Login</a>
+                    </li>
+                    <li>
+                        <a routerLink="/register">Sign up</a>
+                    </li>
+                </ul>
+                <ul *ngIf="isLogged">
+                    <li>
+                        <a routerLink="/profile">My profile</a>
+                    </li>
+                    <li (click)="logout()">
+                        <a>Logout</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
     </div>
-    <nav>
-        <ul>
-            <li>
-                <a routerLink="/home">Home</a>
-            </li>
-            <li>
-                <a routerLink="/reviews">Reviews</a>
-            </li>
-            <li>
-                <a routerLink="/add-review">Add a review</a>
-            </li>
-        </ul>
-        
-    </nav>
 
 </header>
