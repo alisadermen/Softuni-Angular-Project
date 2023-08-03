@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Firestore, collection, addDoc, collectionData, doc, updateDoc, deleteDoc } from '@angular/fire/firestore';
+import { Firestore, collection, addDoc, collectionData, doc, updateDoc, deleteDoc, getDoc } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { inject } from '@angular/core';
 import { MovieReview } from '../models/movie-review.model';
@@ -16,6 +16,26 @@ export class ApiService {
     const collectionInstance = collection(this.firestore,'movie-reviews');
     const movieReviews = collectionData(collectionInstance, {idField: 'id'});
     return movieReviews;
+  }
+
+  async getReviewById(reviewId: string):Promise<MovieReview | null> {
+    const docRef = doc(this.firestore,'movie-reviews', reviewId);
+    const docSnap = await getDoc(docRef);
+    if (docSnap.exists()) {
+      const reviewData = docSnap.data();
+      const reviewInfo: MovieReview = {
+        id: reviewId,
+        author: reviewData['author'],
+        date: reviewData['date'],
+        title: reviewData['title'],
+        content: reviewData['content'],
+        photo_url: reviewData['photo_url']
+      };
+      return reviewInfo;
+    } else {
+      // Review not found
+      return null;
+    }
   }
 
   /*

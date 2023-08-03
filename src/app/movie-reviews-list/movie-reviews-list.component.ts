@@ -21,6 +21,10 @@ export class MovieReviewsListComponent implements OnInit{
     this.apiService.getReviews().subscribe((reviews)=>{
       this.reviews = reviews;
       //this.reviews = []; za testvane na thereAreNoReviews
+      console.log(reviews);
+      console.log(this.reviews);
+      
+      
       if(reviews.length === 0){
         this.thereAreNoReviews = true;
       }

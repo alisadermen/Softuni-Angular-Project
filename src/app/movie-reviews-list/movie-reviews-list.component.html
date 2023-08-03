@@ -14,9 +14,8 @@
             <div class="card" *ngFor="let review of reviews">
                 <img src="{{review.photo_url}}">
                 <div class = "card-content">
-                    <a href="#"></a>
                     <h2>{{review.author}}</h2>
-                    <h3>{{review.title}}</h3>
+                    <a [routerLink]="review.id"><h3>{{review.title}}</h3></a>
                     <p>
                         {{review.content}}
                     </p>

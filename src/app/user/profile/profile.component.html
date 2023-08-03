@@ -1,1 +1,35 @@
-<p>profile works!</p>
+<section class="container">
+    <div class="profile">
+        <h2>Profile Info</h2>
+        <img src="https://pbs.twimg.com/media/FjU2lkcWYAgNG6d.jpg" alt="Profile Photo">
+        <input type="text" placeholder="Name">
+        <input type="email" placeholder="Email">
+        <input type="password" placeholder="Password">
+        <input type="password" placeholder="Confirm password">
+        <button>Edit</button>
+    </div>
+    <div class="my-reviews">
+        <div><h2>My Reviews</h2></div>
+        
+        <div class="cards-area">
+            <div class="card" *ngFor="let review of reviews">
+                <img src="{{review.photo_url}}">
+                <div class = "card-content">
+                    <a href="#"></a>
+                    <h2>{{review.author}}</h2>
+                    <h3>{{review.title}}</h3>
+                    <p>
+                        {{review.content}}
+                    </p>
+                    <div class="card-footer">
+                        <div class="image-container">
+                            <img src="">
+                        </div>
+                        <p>{{review.date}}</p>
+                        <p>5 min read</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

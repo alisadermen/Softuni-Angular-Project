@@ -15,7 +15,7 @@ const routes: Routes = [
             component: MainComponent
         },
         {
-            path: 'reviewId',
+            path: ':id',
             component: CurrentReviewComponent
         }
     ]
@@ -23,7 +23,7 @@ const routes: Routes = [
   {
     path: 'add-review',
     component: NewReviewComponent,
-    canActivate: [AuthActivate]
+    //canActivate: [AuthActivate]
   }
 ];
 

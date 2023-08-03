@@ -1,1 +1,21 @@
-<p>current-review works!</p>
+<section class="container">
+    <div class="cards-area">
+        <div class="card">
+            <img src="{{review?.photo_url}}">
+            <div class = "card-content">
+                <h2>{{review?.author}}</h2>
+                <h3>{{review?.title}}</h3>
+                <p>
+                    {{review?.content}}
+                </p>
+                <div class="card-footer">
+                    <div class="image-container">
+                        <img src="">
+                    </div>
+                    <p>{{review?.date}}</p>
+                    <p>5 min read</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

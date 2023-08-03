@@ -5,9 +5,9 @@
     <div class="content">
       <h2>Blogstagram</h2>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec massa euismod, lacinia sapien et, scelerisque nunc. Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-      <div class="buttons">
-        <button class="login">Login</button>
-        <button class="register">Sign up</button>
+      <div *ngIf="!isLogged" class="buttons">
+        <button routerLink="/login" class="login">Login</button>
+        <button routerLink="/register" class="register">Sign up</button>
       </div>
     </div>
   </div>

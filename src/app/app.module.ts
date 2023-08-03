@@ -14,6 +14,9 @@ import { MovieReviewsListComponent } from './movie-reviews-list/movie-reviews-li
 import { UsersListComponent } from './users-list/users-list.component';
 import { HomeComponent } from './home/home.component';
 import { ReviewModule } from './review/review.module';
+import { ProfileComponent } from './user/profile/profile.component';
+import { CurrentReviewComponent } from './review/current-review/current-review.component';
+import { UserModule } from './user/user.module';
 
 //entry module v koito moje da includevame drugi moduli
 
@@ -23,7 +26,7 @@ import { ReviewModule } from './review/review.module';
     MainComponent,
     MovieReviewsListComponent,
     UsersListComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,6 +34,7 @@ import { ReviewModule } from './review/review.module';
     CoreModule,
     FormsModule,
     ReviewModule,
+    UserModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore())
   ],

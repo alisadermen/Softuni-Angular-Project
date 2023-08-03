@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Domine:wght@400;500;600;700&display=swap');
+
+
+footer {
+    background: rgb(195,76,137);
+    background: linear-gradient(150deg, rgba(195,76,137,1) 38%, rgba(199,196,244,1) 100%);
+    height: 70px;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+}
+
+p {
+    font-family: 'Domine', serif;
+    padding-top: 25px;
+}
+
