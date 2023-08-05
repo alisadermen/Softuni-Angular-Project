@@ -12,6 +12,10 @@
   gap: 15px;
   padding-top: 70px;
   border: 1px solid #C34C89;
+  border-radius: 15px;
+  margin: 50px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 h1{
@@ -49,6 +53,7 @@ p{
 
 a{
   color: #B7B7B7;
+  cursor: pointer;
 }
 
 button:hover{

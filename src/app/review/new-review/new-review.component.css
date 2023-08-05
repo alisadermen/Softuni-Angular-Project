@@ -1,0 +1,92 @@
+.container{
+    width: 600px;
+    border: 1px solid #C34C89;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #F6F6F6;
+    margin-top: 50px;
+    margin-bottom:50px;
+  }
+  
+  .container-title {
+    width: 595px;
+    border-bottom: 3px solid white;
+    text-align: center;
+    color: #C34C89;
+    font-weight: bold;
+    font-size: 20px;
+    padding-top: 10px;
+  }
+  
+  
+  textarea.content {
+    border: 1px solid white;
+    border-radius: 10px;
+    height: 150px;
+    width: 500px;
+    box-sizing:border-box;
+    padding: 12px;
+    outline: none;
+    margin: 20px;
+    font-size: 16px;
+    resize: none;
+  }
+  
+  textarea.title {
+    border: 1px solid white;
+    border-radius: 10px;
+    height:50px;
+    width: 500px;
+    box-sizing:border-box;
+    padding: 12px;
+    outline: none;
+    margin: 20px;
+    font-size: 16px;
+    resize: none;
+  }
+  
+  .buttons{
+    width: 595px;
+    border-top: 3px solid white;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  button {
+    margin: 20px;
+    width: 80px;
+    padding: 15px;
+    border: 1px solid #F6F6F6;
+    border-radius: 10px;
+  }
+  
+  button.cancel{
+    background-color: white;
+    color: #C34C89;
+  }
+  
+  button.publish{
+    background-color: #C34C89;
+    color: white;
+  }
+  
+  button.publish:hover{
+    background-color:  #BC2874;
+  }
+  
+  button.cancel:hover{
+    border: 1px solid #CAC0C5;
+  }
+  
+  .file-area {
+    width: 500px;
+    padding: 30px;
+    background-color: #FFE6EA;
+    border: 2px dashed #C34C89;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
