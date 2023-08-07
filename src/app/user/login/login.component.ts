@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -12,9 +13,8 @@ export class LoginComponent {
 
     }
 
-    login(email: string, password: string):void{
-      //
-      this.userService.login();
-      this.router.navigate(['/']);
+    login(form: NgForm):void{
+      console.log(form.value);
+     
     }
 }

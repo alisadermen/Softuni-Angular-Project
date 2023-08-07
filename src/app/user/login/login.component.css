@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Domine:wght@400;500;600;700&display=swap');
 
 
-.container{
+.container form fieldset{
   background-color: white;
   width: 400px;
   height: 600px;
@@ -47,8 +47,10 @@ button {
 }
 
 
-p{
+p.register-link{
   color: #B7B7B7;
+  text-align: center;
+  margin-top: 20px;
 }
 
 a{
@@ -63,4 +65,5 @@ button:hover{
 
 p.error{
     text-align: left;
+    color: rgb(190, 6, 6);
 }

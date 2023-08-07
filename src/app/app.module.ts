@@ -17,6 +17,8 @@ import { ReviewModule } from './review/review.module';
 import { ProfileComponent } from './user/profile/profile.component';
 import { CurrentReviewComponent } from './review/current-review/current-review.component';
 import { UserModule } from './user/user.module';
+import { AppEmailDirective } from './shared/validators/app-email.directive';
+import { SharedModule } from './shared/shared.module';
 
 //entry module v koito moje da includevame drugi moduli
 
