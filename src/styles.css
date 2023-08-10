@@ -4,4 +4,10 @@ body{
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  margin-bottom: 70px;
+  padding: 0;
+  height: 100%;
 }

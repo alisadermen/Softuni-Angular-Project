@@ -14,11 +14,8 @@ import { MovieReviewsListComponent } from './movie-reviews-list/movie-reviews-li
 import { UsersListComponent } from './users-list/users-list.component';
 import { HomeComponent } from './home/home.component';
 import { ReviewModule } from './review/review.module';
-import { ProfileComponent } from './user/profile/profile.component';
-import { CurrentReviewComponent } from './review/current-review/current-review.component';
 import { UserModule } from './user/user.module';
-import { AppEmailDirective } from './shared/validators/app-email.directive';
-import { SharedModule } from './shared/shared.module';
+import { AppPasswordDirective } from './shared/validators/app-password.directive';
 
 //entry module v koito moje da includevame drugi moduli
 

@@ -1,26 +1,32 @@
 <div class="container">
-    <h1>Sign Up</h1>
-    <input type="text" placeholder="Name">
-    <p class="error">
-        Name is required!
-    </p>
-    <input type="email" placeholder="Email">
-    <!-- <p class="error">
-                    Email is required!
-                </p>
-                <p class="error">
-                    Email is not valid!
-                </p> -->
-    <input type="password" placeholder="Password">
-    <!-- <p class="error">
-                    Password is required!
-                </p>
-                <p class="error">
-                    Password must be at least 4 characters!
-                </p> -->
-    <input type="password" placeholder="Confirm password">
-                <!-- <p class="error">Passwords don't match!</p> -->
-                
-    <button type="submit" class="hover">Sign Up</button>
-    <p>Already a member? <a routerLink="/login">Log in</a></p>
+    <form class="login" #form="ngForm" (ngSubmit)="register(form)" [matchPasswords]="['password', 'confPassword']">
+        <fieldset>
+            <h1>Sign Up</h1>
+            <input type="text" name="name" id="name" placeholder="Name" #inputName="ngModel" ngModel required minlength="2">
+            <ng-container *ngIf="inputName.touched">
+                <p class="error" *ngIf="inputName.errors?.['required']">Name is required!</p>
+                <p class="error" *ngIf="inputName.errors?.['minlength']">Name must be at least 2 characters!</p>
+            </ng-container>
+            <input type="email" name="email" id="email" placeholder="Email" #inputEmail="ngModel" ngModel required appEmail>
+            <ng-container *ngIf="inputEmail.touched">
+                <p class="error" *ngIf="inputEmail.errors?.['required']">Email is required!</p>
+                <p class="error" *ngIf="inputEmail.errors?.['appEmailValidator']">Email is not valid!</p>
+            </ng-container>
+            <ng-container>
+                <input type="password" name="password" id="password" placeholder="Password" #password="ngModel" ngModel required minlength="8">
+                <ng-container *ngIf="password.touched">
+                    <p class="error" *ngIf="password.errors?.['required']">Password is required!</p>
+                    <p class="error" *ngIf="password.errors?.['minlength']">Password must be at least 8 characters!</p>
+                </ng-container>
+                <input type="password" name="confPassword" id="confPassword" placeholder="Confirm password" #confPassword="ngModel"ngModel required>
+                <ng-container *ngIf="confPassword.touched">
+                    <p class="error" *ngIf="confPassword.errors?.['required']">Confirm your password!</p>
+                    <p class="error" *ngIf="confPassword.errors?.['matching']">Confirm Password does not match</p>
+                </ng-container>
+
+            </ng-container>
+            <button type="submit" class="hover" [disabled]="form.invalid">Sign Up</button>
+            <p>Already a member? <a routerLink="/login">Log in</a></p>
+        </fieldset>
+    </form>
   </div>

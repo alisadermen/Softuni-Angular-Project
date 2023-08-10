@@ -15,6 +15,11 @@ export class LoginComponent {
 
     login(form: NgForm):void{
       console.log(form.value);
+      if(form.invalid){
+        return;
+      }
+      this.userService.login();
+      this.router.navigate(["/"]);
      
     }
 }

@@ -2,19 +2,20 @@
     <form class="login" #form="ngForm" (ngSubmit)="login(form)">
         <fieldset>
             <h1>Login</h1>
-            <input type="email" name="email" id="email" placeholder="Email" #inputEmail="ngModel" ngModel required appEmail="email@email.com"/>
+            <input type="email" name="email" id="email" placeholder="Email" #inputEmail="ngModel" ngModel required appEmail/>
             <ng-container *ngIf="inputEmail.touched">
                 <p class="error" *ngIf="inputEmail.errors?.['required']">Email is required!</p>
                 <p class="error" *ngIf="inputEmail.errors?.['appEmailValidator']">Email is not valid!</p>
             </ng-container>
-            <input type="password" name="password" id="password" placeholder="Password" #inputPassword="ngModel" ngModel required/>
-            <p class="error">Password is required!</p>
-            <p class="error">Password must be at least 4 characters!</p>
-            <button type="submit">LOGIN</button>
+            <input type="password" name="password" id="password" placeholder="Password" #inputPassword="ngModel" ngModel required minlength="8"/>
+            <ng-container *ngIf="inputPassword.touched">
+                <p class="error" *ngIf="inputPassword.errors?.['required']">Password is required!</p>
+                <p class="error" *ngIf="inputPassword.errors?.['minlength']">Password must be at least 8 characters!</p>
+            </ng-container>
+            <button type="submit" [disabled]="form.invalid">LOGIN</button>
             <p class="register-link">Not a member? <a routerLink="/register">Sign up now</a></p>
         </fieldset>
     </form>
-    {{form.value | json}}
   </div>
  
   
