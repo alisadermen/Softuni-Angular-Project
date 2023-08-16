@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +11,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-    constructor(private userService: UserService, private router: Router){
+    constructor(private authService: AuthService){
 
     }
 
@@ -18,8 +20,8 @@ export class LoginComponent {
       if(form.invalid){
         return;
       }
-      this.userService.login();
-      this.router.navigate(["/"]);
-     
+
+      const {email, password} = form.value;
+      this.authService.login(email, password);
     }
 }

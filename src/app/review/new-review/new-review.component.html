@@ -1,18 +1,32 @@
 <div class="container">
-    <div class="container-title">
-      <p>Let's create your new review</p>
-    </div>
-    <div class="review-title">
-      <textarea class="title" placeholder="The title of your review"></textarea>
-    </div>
-    <div class="content">
-      <textarea class="content" placeholder="The content of your review"></textarea>
-    </div>
-     <div class="file-area">
+  <form class="login" #form="ngForm" (ngSubmit)="addReview(form)">
+    <fieldset>
+
+      <div class="container-title">
+        <p>Let's create your new review</p>
+      </div>
+      <div class="review-title">
+        <textarea class="title" name="title" placeholder="The title of your review" #title="ngModel" ngModel required minlength="5"></textarea>
+      </div>
+      <ng-container *ngIf="title.touched">
+        <p class="error" *ngIf="title.errors?.['required']">Title is required!</p>
+        <p class="error" *ngIf="title.errors?.['minlength']">Title must be at least 5 characters!</p>
+      </ng-container>
+        <div class="content">
+        <textarea class="content" name="content" placeholder="The content of your review" #content="ngModel" ngModel required minlength="20"></textarea>
+        <ng-container *ngIf="content.touched">
+          <p class="error" *ngIf="content.errors?.['required']">Content is required!</p>
+          <p class="error" *ngIf="content.errors?.['minlength']">Content must be at least 20 characters!</p>
+        </ng-container>
+      </div>
+      <div class="file-area">
         <div class="default">Upload a cover photo for your review</div>
-    </div>
-    <div class="buttons">
-      <button class="cancel">Cancel</button>
-      <button class="publish">Publish</button>
-    </div>
-  </div>
+      </div>
+      <!--should implement file upload validation-->
+      <div class="buttons">
+        <button class="cancel" routerLink="/reviews">Cancel</button>
+        <button class="publish" [disabled]="form.invalid">Publish</button>
+      </div>
+    </fieldset>
+  </form>
+</div>

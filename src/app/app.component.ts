@@ -9,25 +9,25 @@ import { Observable } from 'rxjs';
 })
 export class AppComponent {
   title = 'final-project-softuni';
-  userData!: Observable<any>;
+//   userData!: Observable<any>;
 
-  constructor(private apiService: ApiService){
-    this.userData = this.getUsers();
-  }
+//   constructor(private apiService: ApiService){
+//     this.userData = this.getUsers();
+//   }
 
-  getUsers(): Observable<any[]>{
-    return this.apiService.getUsers();
-  }
+//   getUsers(): Observable<any[]>{
+//     return this.apiService.getUsers();
+//   }
 
-  addUsers(f: any){
-    this.apiService.addUsers(f);
-  }
+//   addUsers(f: any){
+//     this.apiService.addUsers(f);
+//   }
 
-  deleteUsers(id: string){
-    this.apiService.deleteUsers(id);
-  }
+//   deleteUsers(id: string){
+//     this.apiService.deleteUsers(id);
+//   }
 
-  updateUsers(id: string){
-    this.apiService.updateUsers(id);
-  }
+//   updateUsers(id: string){
+//     this.apiService.updateUsers(id);
+//   }
 }

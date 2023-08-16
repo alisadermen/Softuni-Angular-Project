@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { NewReviewComponent } from './new-review/new-review.component';
 import { CurrentReviewComponent } from './current-review/current-review.component';
 import { ReviewRoutingModule } from './review-routing.module';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -13,7 +14,8 @@ import { ReviewRoutingModule } from './review-routing.module';
   ],
   imports: [
     CommonModule,
-    ReviewRoutingModule
+    ReviewRoutingModule,
+    FormsModule
   ]
 })
 export class ReviewModule { }

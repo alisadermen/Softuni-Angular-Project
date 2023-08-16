@@ -2,34 +2,79 @@
     <div class="profile">
         <h2>Profile Info</h2>
         <img src="https://pbs.twimg.com/media/FjU2lkcWYAgNG6d.jpg" alt="Profile Photo">
-        <input type="text" placeholder="Name">
-        <input type="email" placeholder="Email">
-        <input type="password" placeholder="Password">
-        <input type="password" placeholder="Confirm password">
-        <button>Edit</button>
+        <input type="file" accept="*.pmg.jpg" id="file-upload">
+        <ng-container *ngIf="!inEditMode">
+            <div class="flex">
+                <p>Name:</p>
+                <p>{{profileDetails.name}}</p>
+                </div>
+                <div class="flex">
+                    <p>Email:</p>
+                    <p>{{profileDetails.email}}</p>
+                </div>
+                <div class="flex">
+                    <p>Password:</p>
+                    <p>{{profileDetails.password}}</p>
+                </div>
+                <!--
+                    <div class="flex">
+                        <p>Confirm password:</p>
+                        <p>{{profileDetails?.confPassword}}</p>
+                    </div>-->
+                    <button (click)="toggleEditMode()">Edit</button>
+                </ng-container>
+                <form #form="ngForm" (ngSubmit)="edit(form)" [matchPasswords]="['password', 'confPassword']">
+                    <ng-container *ngIf="inEditMode">
+                        <input type="text" name="name" id="name" placeholder="Name" #inputName="ngModel" [(ngModel)]="profileDetails.name" ngModel required minlength="2">
+                        <ng-container *ngIf="inputName.touched">
+                            <p class="error" *ngIf="inputName.errors?.['required']">Name is required!</p>
+                            <p class="error" *ngIf="inputName.errors?.['minlength']">Name must be at least 2 characters!</p>
+                        </ng-container>
+                        <input type="email" name="email" id="email" placeholder="Email" #inputEmail="ngModel" [(ngModel)]="profileDetails.email" ngModel required appEmail>
+                        <ng-container *ngIf="inputEmail.touched">
+                            <p class="error" *ngIf="inputEmail.errors?.['required']">Email is required!</p>
+                            <p class="error" *ngIf="inputEmail.errors?.['appEmailValidator']">Email is not valid!</p>
+                        </ng-container>
+                        <ng-container>
+                            <input type="password" name="password" id="password" placeholder="Password" #password="ngModel" [(ngModel)]="profileDetails.password" ngModel required minlength="8">
+                            <ng-container *ngIf="password.touched">
+                                <p class="error" *ngIf="password.errors?.['required']">Password is required!</p>
+                                <p class="error" *ngIf="password.errors?.['minlength']">Password must be at least 8 characters!</p>
+                            </ng-container>
+                            <input type="password" name="confPassword" id="confPassword" placeholder="Confirm password" #confPassword="ngModel" [(ngModel)]="profileDetails.confPassword" ngModel required>
+                            <ng-container *ngIf="confPassword.touched">
+                                <p class="error" *ngIf="confPassword.errors?.['required']">Confirm your password!</p>
+                                <p class="error" *ngIf="confPassword.errors?.['matching']">Confirm Password does not match</p>
+                            </ng-container>
+                        </ng-container>
+                        <button type="submit" [disabled]="form.invalid">Save</button>
+                    </ng-container>
+                </form>
     </div>
-    <div class="my-reviews">
-        <div><h2>My Reviews</h2></div>
-        
-        <div class="cards-area">
-            <div class="card" *ngFor="let review of reviews">
-                <img src="{{review.photo_url}}">
-                <div class = "card-content">
-                    <a href="#"></a>
-                    <h2>{{review.author}}</h2>
-                    <h3>{{review.title}}</h3>
-                    <p>
-                        {{review.content}}
-                    </p>
-                    <div class="card-footer">
-                        <div class="image-container">
-                            <img src="">
+    <!--
+        <div class="my-reviews">
+            <div><h2>My Reviews</h2></div>
+            
+            <div class="cards-area">
+                <div class="card" *ngFor="let review of reviews">
+                    <img src="{{review.photo_url}}">
+                    <div class = "card-content">
+                        <a href="#"></a>
+                        <h2>{{review.author}}</h2>
+                        <h3>{{review.title}}</h3>
+                        <p>
+                            {{review.content}}
+                        </p>
+                        <div class="card-footer">
+                            <div class="image-container">
+                                <img src="">
+                            </div>
+                            <p>{{review.date}}</p>
+                            <p>5 min read</p>
                         </div>
-                        <p>{{review.date}}</p>
-                        <p>5 min read</p>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    -->
 </section>

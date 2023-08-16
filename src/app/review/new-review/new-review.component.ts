@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-new-review',
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./new-review.component.css']
 })
 export class NewReviewComponent {
-
+  
+  addReview(form: NgForm){
+    if(form.invalid){
+      return;
+    }
+  }
 }

@@ -1,8 +1,10 @@
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { NgForm } from '@angular/forms';
-import { UserService } from '../user.service';
 import { Router } from '@angular/router';
+import { ApiService } from 'src/app/services/api.service';
+import { AuthService } from 'src/app/services/auth.service';
+import { getAuth } from "firebase/auth";
 
 @Component({
   selector: 'app-register',
@@ -11,7 +13,7 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent {
 
-  constructor(private userService: UserService, private router: Router){
+  constructor(private authService: AuthService, private apiService: ApiService){
 
   }
   
@@ -20,6 +22,11 @@ export class RegisterComponent {
     if(form.invalid){
       return;
     }
-    this.router.navigate(["/login"]);
+    const {email, password, name} = form.value;
+    this.authService.register(email, password, name);
+    const auth = getAuth();
+    const user = auth.currentUser;
+    const userUid = user?.uid;
+    this.apiService.addUsers(form, userUid);
   }
 }

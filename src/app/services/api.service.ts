@@ -3,6 +3,7 @@ import { Firestore, collection, addDoc, collectionData, doc, updateDoc, deleteDo
 import { Observable } from 'rxjs';
 import { inject } from '@angular/core';
 import { MovieReview } from '../models/movie-review.model';
+import { NgForm } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -38,6 +39,17 @@ export class ApiService {
     }
   }
 
+  public addReview(f: any){
+    console.log(f.value);
+    const collectionInstance = collection(this.firestore, 'movie-reviews');
+    addDoc(collectionInstance, f.value).then(() => {
+      console.log('Data saved successfully');
+    })
+    .catch((error)=>{
+      console.log(error);
+      
+    })
+  }
   /*
   mapResultToMovieReview = (result: any): MovieReview => {
     
@@ -52,15 +64,21 @@ export class ApiService {
     };
 }
 */
-  public getPosts(){}
   
-  public addUsers(f: any){
-    console.log(f.value);
+  public addUsers(form: NgForm, userUid: string|undefined){
+    debugger;
+    const userData = {
+      uid: userUid,
+      name: form.value.name,
+      email: form.value.email,
+      password: form.value.password
+    };
     const collectionInstance = collection(this.firestore, 'users');
-    addDoc(collectionInstance, f.value).then(() => {
+    addDoc(collectionInstance, userData).then(() => {
       console.log('Data saved successfully');
     })
     .catch((error)=>{
+      alert('not saved');
       console.log(error);
       
     })

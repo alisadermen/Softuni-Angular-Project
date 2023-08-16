@@ -34,7 +34,7 @@ html {
     object-fit: cover;
 }
 
-.profile {
+.profile form{
   width: 300px;
   border: 1px solid #FFE6EA;
   border-radius: 15px;
@@ -44,7 +44,6 @@ html {
   flex-direction: column;
   gap: 20px;
   margin-top: 20px;
-  font-family: 'Domine', serif;
 
 }
 
@@ -131,4 +130,8 @@ button {
     border: none;
     margin-top: 30px;
     color: white;
+}
+
+.flex {
+    display: flex;
 }

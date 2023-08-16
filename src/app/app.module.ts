@@ -6,8 +6,10 @@ import { AppComponent } from './app.component';
 import { environment } from 'src/environments/environment';
 import { CoreModule } from './core/core.module';
 
-import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
+import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { provideStorage, getStorage} from '@angular/fire/storage';
+import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 import { MainComponent } from './main/main.component';
 import { FormsModule } from '@angular/forms';
 import { MovieReviewsListComponent } from './movie-reviews-list/movie-reviews-list.component';
@@ -15,7 +17,7 @@ import { UsersListComponent } from './users-list/users-list.component';
 import { HomeComponent } from './home/home.component';
 import { ReviewModule } from './review/review.module';
 import { UserModule } from './user/user.module';
-import { AppPasswordDirective } from './shared/validators/app-password.directive';
+import { appInterceptorProvider } from './app.interceptor';
 
 //entry module v koito moje da includevame drugi moduli
 
@@ -35,9 +37,11 @@ import { AppPasswordDirective } from './shared/validators/app-password.directive
     ReviewModule,
     UserModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideFirestore(() => getFirestore())
+    provideFirestore(() => getFirestore()),
+    provideStorage(() => getStorage())
+    
   ],
-  providers: [],
+  providers: [appInterceptorProvider, { provide: FIREBASE_OPTIONS, useValue: environment.firebase }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

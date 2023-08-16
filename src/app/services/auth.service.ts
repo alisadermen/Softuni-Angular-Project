@@ -21,15 +21,23 @@ export class AuthService {
     })
   }
   
-  register(email: string, password: string){
-    this.fireauth.createUserWithEmailAndPassword(email, password).then(() => {
+  async register(email: string, password: string, name: string/*photoURL: string*/){
+    this.fireauth.createUserWithEmailAndPassword(email, password).then((userCredentials) => {
       alert("Registration was succesfull");
+      let user = userCredentials.user;
       this.router.navigate(['/login']);
-
-    }, err => {
-        alert("Something went wrong");
-        this.router.navigate(['/register']);
+      return user?.updateProfile({
+        displayName: name,
+        //photoURL: photoURL
+      });
     })
+    .then(() => {
+      alert('Profile created sucessfully');
+    })
+    .catch((error) => {
+      alert("Something went wrong");
+      this.router.navigate(['/register']);
+    });
   }
 
   logout(){

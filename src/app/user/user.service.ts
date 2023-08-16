@@ -21,13 +21,15 @@ export class UserService {
     }
    }
 
-   login():void{
-    this.user = {
-      email: 'johndoe@gmail.com',
-      name: 'John Doe'
-    };
+   login(email: string, password: string):void{
+    // this.user = {
+    //   email: 'johndoe@gmail.com',
+    //   name: 'John Doe'
+    // };
 
-    localStorage.setItem(this.USER_KEY, JSON.stringify(this.user));
+    // localStorage.setItem(this.USER_KEY, JSON.stringify(this.user));
+
+
    }
 
    logout():void{

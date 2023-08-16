@@ -22,8 +22,6 @@ export class AppEmailDirective implements Validator, OnChanges{
   }
 
   ngOnChanges(changes: SimpleChanges): void{
-    debugger;
-
     //validate on every change
     const currentEmailChanges = changes["appEmail"];
     if(currentEmailChanges){
